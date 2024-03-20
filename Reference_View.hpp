@@ -7,11 +7,7 @@
 #ifndef Reference_View_h
 #define Reference_View_h
 
-//#include <type_traits>
-//#include <iterator>
-
 #include <assert.h>
-
 
 namespace revive
 {
@@ -63,7 +59,7 @@ namespace revive
 
     /**
      The Reference_View wraps a collection of pointers and returns iterators that expose each pointer as a reference.
-     Requirement - That collection_t is a collection of pointer types
+     Requirement - Object must be able to be dereferenced with * operator.
      */
     template<typename collection_t>
     class Reference_View
@@ -174,8 +170,7 @@ namespace revive
     Reference_View<collection_t>::Reference_View(collection_t& collection)
     : rCollection(collection)
     {
-        using t = typename std::iterator_traits<typename collection_t::iterator>::value_type;
-        static_assert(std::is_pointer_v<t>, "Reference_View expects to wrap a collection of pointers...");
+
     }
 
     template<typename collection_t>
