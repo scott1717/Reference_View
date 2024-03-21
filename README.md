@@ -20,4 +20,10 @@ nums.push_back(new int(2));</code></p>
     <li><b>Because std::reference_wrapper doesn't do the trick.  </b><br>While reference_wrapper is useful, it has proven unhelpful to maintain a collection reference_wrapper objects.  The problem is that (until the dot operator can be overloaded) one must still use .get() in order to get into the guts of the wrapped object.</li>
 </ul>
 
+<h3>Cautions:</h3>
+
+<ul>
+    <li>Reference_View dereferences pointers and therefore one must take measures to avoid the usual problems associated with pointers - dereferencing nullptr or dangling references.</li>
+</ul>
+
 UN FINISHED README... (more to come with examples)
