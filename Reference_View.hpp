@@ -7,7 +7,7 @@
 #ifndef Reference_View_h
 #define Reference_View_h
 
-#include <assert.h>
+#include <cassert>
 
 namespace revive
 {
@@ -32,6 +32,8 @@ namespace revive
         
         auto& operator*();
         
+        bool is_nullptr() const;
+        
     private:
         iterator_t vIt;
     };
@@ -51,6 +53,8 @@ namespace revive
         bool operator!=(const Const_Reference_View_Iterator& rhs) const;
         
         const auto& operator*() const;
+        
+        bool is_nullptr() const;
         
     private:
         mutable const_interator_t vIt;
@@ -125,6 +129,12 @@ namespace revive
         return **this->vIt;
     }
 
+template<typename iterator_t>
+bool Reference_View_Iterator<iterator_t>::is_nullptr() const
+{
+    return (*(this->vIt) == nullptr);
+}
+
     template<typename iterator_t>
     Const_Reference_View_Iterator<iterator_t>::Const_Reference_View_Iterator(iterator_t it)
     : vIt(it)
@@ -165,6 +175,12 @@ namespace revive
         
         return **this->vIt;
     }
+
+template<typename iterator_t>
+bool Const_Reference_View_Iterator<iterator_t>::is_nullptr() const
+{
+    return (*(this->vIt) == nullptr);
+}
 
     template<typename collection_t>
     Reference_View<collection_t>::Reference_View(collection_t& collection)
