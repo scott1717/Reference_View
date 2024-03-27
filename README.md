@@ -1,15 +1,34 @@
-<H1>Reference View</H1> 
+<H1>Reference_View</H1> 
 
 <p>Reference_View allows a basic collection of pointers (or smart pointers) to be iterated as a collection of references.</p>
-<p>non const example:</p>
-<pre><code class="language-pascal"><p>std::vector&ltint*&gt nums;</p>
+<h2>4 Ways to use Reference_View</h2>
+<ul>
+    <li>Nonvalidated</li>
+    <li>Validated with no filter</li>
+    <li>Validated with a custom filter class</li>
+    <li>Validated with a custom lambda class</li>
+</ul>
+
+<h3>Nonvalidated</h3>
+<p>... coming</p>
+
+<h3>Validated with no filter</h3>
+<pre><code class="language-pascal"><p>// non const example:</p><p>std::vector&ltint*&gt nums;</p>
 <p>nums.push_back(new int(1));
-nums.push_back(new int(2));</code></p>
-<p>revive::Reference_View numsView(nums);</p>
+nums.push_back(new int(2));
+nums.push_back(nullptr);
+nums.push_back(nullptr);</p>
+<p>auto numsView = revive::Ref_View(nums);</p>
 <p>for(auto& i : numsView)
-    std::cout &lt&lt ++i &lt&lt std::endl;</p></pre>
-<p>or const:</p>
-<pre><code class="language-pascal"><p>const revive::Reference_View cNumsView(nums);</p>
+    std::cout &lt&lt ++i &lt&lt std::endl;
+
+/**
+output:
+1
+2
+// pointers are validated so the nullptr(s) are skipped
+*/</p></code></pre>
+<pre><code class="language-pascal"><p> //or const example:</p><p>const auto cNumsView = revive::Ref_View(nums);</p>
 <p>for(auto& i : cNumsView)
     std::cout &lt&lt i &lt&lt std::endl;  // editing not allowed in const</p></code></pre>
 
