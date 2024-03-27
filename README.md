@@ -1,4 +1,4 @@
-<H1>Reference_View</H1> 
+<H1>Reference View</H1> 
 
 <p>Reference_View allows a basic collection of pointers (or smart pointers) to be iterated as a collection of references.</p>
 <p>non const example:</p>
