@@ -345,7 +345,7 @@ namespace revive
     }
 
     template<typename collection_t, typename filter_t>
-    const Validated_Iterator_Factory<collection_t, filter_t>::const_iterator& Validated_Iterator_Factory<collection_t, filter_t>::const_iterator::operator++() const
+    const typename Validated_Iterator_Factory<collection_t, filter_t>::const_iterator& Validated_Iterator_Factory<collection_t, filter_t>::const_iterator::operator++() const
     {
         while (true) {
             ++vIt;
@@ -366,7 +366,7 @@ namespace revive
     }
 
     template<typename collection_t, typename filter_t>
-    const Validated_Iterator_Factory<collection_t, filter_t>::const_iterator& Validated_Iterator_Factory<collection_t, filter_t>::const_iterator::operator++(int) const
+    const typename Validated_Iterator_Factory<collection_t, filter_t>::const_iterator& Validated_Iterator_Factory<collection_t, filter_t>::const_iterator::operator++(int) const
     {
         while (true) {
             vIt++;
@@ -494,7 +494,7 @@ namespace revive
     }
 
     template<typename collection_t>
-    const Nonvalidated_Iterator_Factory<collection_t>::const_iterator& Nonvalidated_Iterator_Factory<collection_t>::const_iterator::operator++() const
+    const typename Nonvalidated_Iterator_Factory<collection_t>::const_iterator& Nonvalidated_Iterator_Factory<collection_t>::const_iterator::operator++() const
     {
         ++this->vIt;
         
@@ -502,7 +502,7 @@ namespace revive
     }
 
     template<typename collection_t>
-    const Nonvalidated_Iterator_Factory<collection_t>::const_iterator& Nonvalidated_Iterator_Factory<collection_t>::const_iterator::operator++(int) const
+    const typename Nonvalidated_Iterator_Factory<collection_t>::const_iterator& Nonvalidated_Iterator_Factory<collection_t>::const_iterator::operator++(int) const
     {
         this->vIt++;
         
